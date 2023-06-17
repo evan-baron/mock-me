@@ -18,9 +18,9 @@ body {
 }
 
 .button {
-    text-align: center;
-    display: inline-block;
     width: 80px;
-    border: 1px solid black;
-    border-radius: 5px;
+}
+
+.mockIn {
+    text-decoration: none !important;
 }

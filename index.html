@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="reset.css">
+    <script defer src="script.js"></script>
     <title>Mock Me</title>
 </head>
 <body>
     <div class="container" id="container">
         <div class="inner-container">
-            <h1>Mock Me Text Converter</h1>
-            <textarea name="mockIn" id="mockIn" cols="60" rows="10">Write your text to convert here...</textarea>
+            <h1>Mockify Text Converter</h1>
+            <textarea class="mockIn" id="mockIn" cols="60" rows="10" value="">Write your text to convert here...</textarea>
             <div class="button-cont">
-                <div class="button" role="button" id="submit">Submit</div>
-                <div class="button" role="button" id="copy">Copy</div>
+                <button class="button" role="button" id="submit" onclick="mockify()">Convert!</button>
+                <button class="button" role="button" id="copy" onclick="copy()">Copy</button>
             </div>
         </div>
     </div>
