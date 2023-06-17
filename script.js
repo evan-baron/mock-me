@@ -35,28 +35,26 @@ function mockify(text) {
     const notLettersIndex = [];
 
     for (let i = 0; i < arr.length; i++) {
-        if (arr[i].match(/[a-zA-Z]/)) {
-        } else {
+        if (!arr[i].match(/[a-zA-Z]/)) {
             notLettersIndex.push(i);
             notLetters.push(arr[i]);
         }
     }
 
-    let filter = arr.filter(checkSpace);
-    function checkSpace(val) {
+    let newText = arr.filter((val) => {
         return val.match(/[a-zA-Z]/)
-    }
+    });
 
-    for (let i = 0; i<filter.length; i+=2) {
-        let string = filter[i];
-        filter.splice(i, 1, string.toUpperCase());
+    for (let i = 0; i<newText.length; i+=2) {
+        let string = newText[i];
+        newText.splice(i, 1, string.toUpperCase());
     }
 
     for (let i = 0; i < notLettersIndex.length; i++) {
-        filter.splice(notLettersIndex[i], 0, notLetters[i]);
+        newText.splice(notLettersIndex[i], 0, notLetters[i]);
     }
 
-    document.getElementById('mockIn').value = filter.join('');
+    document.getElementById('mockIn').value = newText.join('');
 
     let copyText = document.getElementById('mockIn');
     copyText.select();
@@ -64,3 +62,7 @@ function mockify(text) {
     navigator.clipboard.writeText(copyText.value);
     copyText.blur();
 }
+
+document.getElementById('mockIn').addEventListener('click', () => {
+    document.getElementById('mockIn').value = '';
+});
