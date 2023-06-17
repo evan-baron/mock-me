@@ -35,7 +35,8 @@ function mockify(text) {
     const notLetters = [];
     const notLettersIndex = [];
     for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === ' ' || !isNaN(arr[i]) || arr[i] === "!" || arr[i] === `@` || arr[i] === "#" || arr[i] === "$" || arr[i] ==="%" || arr[i] ==="^" || arr[i] === "&" || arr[i] === `*` || arr[i] === "(" || arr[i] === ")" || arr[i] ==="-" || arr[i] ==="_" || arr[i] === "=" || arr[i] === "+" || arr[i] ==="[" || arr[i] ==="{" || arr[i] === "]" || arr[i] === "}" || arr[i] ==="|" || arr[i] ===";" || arr[i] === ":" || arr[i] === "'" || arr[i] ===`"` || arr[i] ==="," || arr[i] === "<" || arr[i] === "." || arr[i] ===">" || arr[i] ==="/" || arr[i] ==="?") {
+        if (arr[i].match(/[a-zA-Z]/)) {
+        } else {
             notLettersIndex.push(i);
             notLetters.push(arr[i]);
         }
