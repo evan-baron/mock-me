@@ -61,18 +61,16 @@ function mockify(text) {
     console.log(notLettersIndex);
 
     document.getElementById('mockIn').value = filter.join('');
-}
 
-function test() {
-    console.log(document.getElementById('mockIn').value);
-}
-
-function copy() {
     let copyText = document.getElementById('mockIn');
     copyText.select();
     copyText.setSelectionRange(0, 9999);
     navigator.clipboard.writeText(copyText.value);
     copyText.blur();
+}
+
+function test() {
+    console.log(document.getElementById('mockIn').value);
 }
 
 document.getElementById('mockIn').addEventListener('click', function() {
