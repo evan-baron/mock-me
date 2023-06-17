@@ -29,13 +29,13 @@ function mockifyNoNums(text) {
 }
 
 function mockify(text) {
-    text = document.getElementById('mockIn').value;
+    text = document.getElementById('mockIn').value.toLowerCase();
     console.log(text);
     let arr = text.split('');
     const notLetters = [];
     const notLettersIndex = [];
     for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === ' ' || !isNaN(arr[i])) {
+        if (arr[i] === ' ' || !isNaN(arr[i]) || arr[i] === "!" || arr[i] === `@` || arr[i] === "#" || arr[i] === "$" || arr[i] ==="%" || arr[i] ==="^" || arr[i] === "&" || arr[i] === `*` || arr[i] === "(" || arr[i] === ")" || arr[i] ==="-" || arr[i] ==="_" || arr[i] === "=" || arr[i] === "+" || arr[i] ==="[" || arr[i] ==="{" || arr[i] === "]" || arr[i] === "}" || arr[i] ==="|" || arr[i] ===";" || arr[i] === ":" || arr[i] === "'" || arr[i] ===`"` || arr[i] ==="," || arr[i] === "<" || arr[i] === "." || arr[i] ===">" || arr[i] ==="/" || arr[i] ==="?") {
             notLettersIndex.push(i);
             notLetters.push(arr[i]);
         }
@@ -45,25 +45,21 @@ function mockify(text) {
     console.log(notLettersIndex);
     let filter = arr.filter(checkSpace);
     function checkSpace(val) {
-        return val != ' ';
+        return val.match(/[a-zA-Z]/)
     }
-    let filterAgain = filter.filter(checkNumber);
-    function checkNumber(val) {
-        return isNaN(val);
+    console.log('checking for characters ' + filter.join(''));
+    for (let i = 0; i<filter.length; i+=2) {
+        let string = filter[i];
+        filter.splice(i, 1, string.toUpperCase());
     }
-    console.log('post-filter ' + filterAgain.join(''));
-    for (let i = 0; i<filterAgain.length; i+=2) {
-        let string = filterAgain[i];
-        filterAgain.splice(i, 1, string.toUpperCase());
-    }
-    console.log(filterAgain.join(''));
+    console.log(filter.join(''));
     for (let i = 0; i < notLettersIndex.length; i++) {
-        filterAgain.splice(notLettersIndex[i], 0, notLetters[i]);
+        filter.splice(notLettersIndex[i], 0, notLetters[i]);
     }
-    console.log(filterAgain.join(''));
+    console.log(filter.join(''));
     console.log(notLettersIndex);
 
-    document.getElementById('mockIn').value = filterAgain.join('');
+    document.getElementById('mockIn').value = filter.join('');
 }
 
 function test() {
