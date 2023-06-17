@@ -77,3 +77,7 @@ function copy() {
     navigator.clipboard.writeText(copyText.value);
     copyText.blur();
 }
+
+document.getElementById('mockIn').addEventListener('click', function() {
+    document.getElementById('mockIn').value = '';
+});
