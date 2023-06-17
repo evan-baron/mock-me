@@ -24,6 +24,15 @@ body {
                 inset -3px -3px 5px rgb(130, 0, 255);
 }
 
+span {
+    font-family: 'Permanent Marker', cursive !important;
+    font-size: 1.5rem !important;
+    font-weight: bolder !important;
+    background: -webkit-linear-gradient(315deg, magenta, rgb(130, 0, 255));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 textarea {
     align-self: center;
     margin-top: 1rem;
