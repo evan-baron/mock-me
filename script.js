@@ -30,7 +30,6 @@ function mockifyNoNums(text) {
 
 function mockify(text) {
     text = document.getElementById('mockIn').value.toLowerCase();
-    console.log(text);
     let arr = text.split('');
     const notLetters = [];
     const notLettersIndex = [];
@@ -65,7 +64,3 @@ function mockify(text) {
     navigator.clipboard.writeText(copyText.value);
     copyText.blur();
 }
-
-document.getElementById('mockIn').addEventListener('click', function() {
-    document.getElementById('mockIn').value = '';
-});
