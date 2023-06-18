@@ -57,12 +57,11 @@ function mockify(text) {
     document.getElementById('mockIn').value = newText.join('');
 
     let copyText = document.getElementById('mockIn');
-    copyText.select();
-    copyText.setSelectionRange(0, 9999);
     navigator.clipboard.writeText(copyText.value);
     copyText.blur();
 }
 
-document.getElementById('mockIn').addEventListener('click', () => {
+function clearText() {
+    console.log('test');
     document.getElementById('mockIn').value = '';
-});
+}
