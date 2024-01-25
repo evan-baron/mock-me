@@ -76,6 +76,5 @@ function mockify(text) {
 
 //clear the textarea on focus
 function clearText() {
-    console.log('test');
     document.getElementById('mockIn').value = '';
 }
